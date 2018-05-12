@@ -27,9 +27,9 @@
                 event.preventDefault();
 
                 var newBurger = {
-                    name: $("#whopper").val().trim()
+                    name: $("#whopper").val().trim();
                 }
-                console.log(newBurger);
+
                 $.ajax('/api/burgers', {
                     type: "POST",
                     data: newBurger
