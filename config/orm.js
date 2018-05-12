@@ -52,7 +52,7 @@ var orm = {
   },
   create: function(table, cols, vals, cb) {
 
-    var queryString = `INSERT INTO burgers (${cols}) VALUES ('${vals}'); `
+    var queryString = `INSERT INTO burgers (${cols}) VALUES ('${vals}');`
 
     connection.query(queryString, vals, function(err, result) {
       if (err) {

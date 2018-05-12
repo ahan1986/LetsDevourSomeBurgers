@@ -22,12 +22,13 @@
 
     <script>
         $(function () {
+            //submitting the input from the textbox
             $("#submit").on("click", function (event) {
                 //making sure to preventDefault on a submit event
                 event.preventDefault();
 
                 var newBurger = {
-                    name: $("#whopper").val().trim();
+                    name: $("#whopper").val().trim()
                 }
 
                 $.ajax('/api/burgers', {
