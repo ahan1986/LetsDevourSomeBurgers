@@ -1,0 +1,20 @@
+html {
+    background: #fdcc5e;
+}
+
+#uneatenBurger{
+    padding: 3% 0 3% 0;
+    border: 1px solid black;
+    margin: 0 19% 0 19%;
+    background-color: #f5f5f5;
+}
+
+.burgerUntouched {
+    border: 1px solid black;
+    transform: translate(-20px, -30px);
+}
+
+img {
+    height: 5%;
+    width:20%;
+}
