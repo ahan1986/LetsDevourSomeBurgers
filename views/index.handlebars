@@ -1,9 +1,37 @@
 <h1>Eat-Da-Burger!</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div>
+                {{#each burger}}
+                  {{#unless devoured}}
+                    <div id="uneatenBurger">
+                        {{id}} {{burger_name}}
+                    </div>
+                    <button class="burgerUntouched" id='devourBtn' data-id="{{id}}">Devour!</button>
+                  {{/unless}}
+                {{/each}}  
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div>
+                {{#each burger}}
+                  {{#if devoured}}
+                    <div id="eatenBurger">
+                        {{id}} {{burger_name}}
+                    </div>
+                  {{/if}}
+                {{/each}}
+            </div>
+        </div>
+    </div>
+</div>
 
 
 <form>
     <div class='form-group'>
         <textarea rows='4' cols='50' id='whopper'></textarea>
-        <button type="submit">Submit</button>
+        <button type="submit" id="submit">Submit</button>
     </div>
 </form>
+<p>Enter a Burger you want to eat Click the "Submit" button.</p>

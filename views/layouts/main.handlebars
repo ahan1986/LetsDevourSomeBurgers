@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/assets/css/burger_style.css" type="text/css" />
+    <title>EAT YOUR BURGER!!!</title>
+    {{!-- <script src="https://code.jquery.com/jquery.js"></script> --}}
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body style="text-align: center">
+
+    {{{ body }}}
+
+    <script>
+        $(function () {
+            $("#submit").on("click", function (event) {
+                //making sure to preventDefault on a submit event
+                event.preventDefault();
+
+                var newBurger = {
+                    name: $("#whopper").val().trim()
+                }
+                console.log(newBurger);
+                $.ajax('/api/burgers', {
+                    type: "POST",
+                    data: newBurger
+                }).then(function () {
+                    console.log("created new Burger");
+                    //Reload the lage to get the updated list
+                    location.reload();
+                });
+            });
+
+            $(".burgerUntouched").on("click", function (event) {
+                var id = $(this).data('id');
+                
+                //send the delete request
+                $.ajax("/api/burgers/" + id, {
+                    type: "PUT"
+                }).then(function () {
+                    console.log("Deleted Burger", id);
+                    //reload the page to get the updated list to display
+                    location.reload();
+                })
+            })
+        });
+    </script>
+</body>
+
+</html>

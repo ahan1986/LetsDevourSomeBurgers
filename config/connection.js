@@ -1,9 +1,11 @@
 //Setting up mySQL connection with the help of dotenv to hide the important informations
 var mysql = require('mysql');
 
+require('dotenv').config();
+
 var connection = mysql.createConnection({
     port: process.env.DB_PORT,
-    host: process.env.DB_PORT,
+    host: 'localhost',
     user: process.env.DB_USER,
     password: process.env.DB_PASS,
     database: process.env.DB_DB
