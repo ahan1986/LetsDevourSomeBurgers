@@ -31,7 +31,7 @@
                     name: $("#whopper").val().trim()
                 }
 
-                $.ajax('/api/burgers', {
+                $.ajax('/api/burger', {
                     type: "POST",
                     data: newBurger
                 }).then(function () {
