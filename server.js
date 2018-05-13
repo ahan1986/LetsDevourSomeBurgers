@@ -25,12 +25,12 @@ var routes = require("./controllers/burgers_controller.js");
 
 app.use(routes);
 
-// trying to use this so that I can enable cors
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
-});
+// // trying to use this so that I can enable cors
+// app.use(function(req, res, next) {
+//   res.header("Access-Control-Allow-Origin", "*");
+//   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//   next();
+// });
 
 // Start our server so that it can begin listening to client requests.
 app.listen(PORT, function() {
