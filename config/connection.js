@@ -3,14 +3,20 @@ var mysql = require('mysql');
 
 require('dotenv').config();
 
-var connection = mysql.createConnection({
-    port: process.env.DB_PORT,
-    host: 'localhost',
-    user: process.env.DB_USER,
-    password: process.env.DB_PASS,
-    database: process.env.DB_DB
-  });
-
+  var connection;
+    if(process.env.JAWSDB_URL) {
+    //Heroku deployment
+        connection = mysql.createConnection(process.env.JAWSDB_URL);
+    } else {
+    //local host
+        connection = mysql.createConnection({
+            port: process.env.DB_PORT,
+            host: 's0znzigqvfehvff5.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
+            user: process.env.DB_USER,
+            password: process.env.DB_PASS,
+            database: process.env.DB_DB
+        });
+    };
   //making connections
 
   connection.connect(function(err) {
